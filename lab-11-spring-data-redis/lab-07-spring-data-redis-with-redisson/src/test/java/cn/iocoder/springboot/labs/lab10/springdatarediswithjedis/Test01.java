@@ -1,6 +1,10 @@
 package cn.iocoder.springboot.labs.lab10.springdatarediswithjedis;
 
 import cn.iocoder.springboot.labs.lab10.springdatarediswithjedis.cacheobject.UserCacheObject;
+import cn.iocoder.springboot.labs.lab10.springdatarediswithjedis.dao.redis.UserCacheDao;
+import cn.iocoder.springboot.labs.lab10.springdatarediswithjedis.util.JSONUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.io.UnsupportedEncodingException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,6 +24,26 @@ public class Test01 {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private UserCacheDao userCacheDao;
+
+    @Test
+    public void testSetMyConfiguration() throws UnsupportedEncodingException {
+        UserCacheObject userCacheObject = new UserCacheObject();
+        userCacheObject.setId(1).setGender(1).setName("尼玛");
+//        redisTemplate.opsForValue().set("1", userCacheObject);
+//        System.out.println(JSON.toJSONBytes(userCacheObject,SerializerFeature.WriteClassName));
+//        System.out.println(JSONUtil.toJSONString(userCacheObject));
+//        System.out.println(JSONUtil.toJSONBytes(userCacheObject));
+//        System.out.println(JSONUtil.parseObject(new String(JSONUtil.toJSONBytes(userCacheObject),"UTF-8"),UserCacheObject.class));
+        userCacheDao.set(userCacheObject.getId(), userCacheObject);
+    }
+
+    @Test
+    public void testGetMyConfiguration(){
+        System.out.println(userCacheDao.get(1));
+    }
 
     @Test
     public void testStringSetKey() {

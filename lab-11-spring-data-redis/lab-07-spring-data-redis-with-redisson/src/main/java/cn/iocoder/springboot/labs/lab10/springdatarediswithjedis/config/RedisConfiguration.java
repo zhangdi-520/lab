@@ -1,11 +1,13 @@
 package cn.iocoder.springboot.labs.lab10.springdatarediswithjedis.config;
 
 import cn.iocoder.springboot.labs.lab10.springdatarediswithjedis.listener.TestChannelTopicMessageListener;
+import cn.iocoder.springboot.labs.lab10.springdatarediswithjedis.listener.TestPatternTopicMessageListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
+import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
@@ -39,7 +41,7 @@ public class RedisConfiguration {
 //        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
 //        template.setValueSerializer(jackson2JsonRedisSerializer);
 
-//    @Bean // PUB/SUB 使用的 Bean ，需要时打开。
+    @Bean // PUB/SUB 使用的 Bean ，需要时打开。
     public RedisMessageListenerContainer listenerContainer(RedisConnectionFactory factory) {
         // 创建 RedisMessageListenerContainer 对象
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
@@ -48,9 +50,10 @@ public class RedisConfiguration {
         container.setConnectionFactory(factory);
 
         // 添加监听器
-        container.addMessageListener(new TestChannelTopicMessageListener(), new ChannelTopic("TEST"));
-//        container.addMessageListener(new TestChannelTopicMessageListener(), new ChannelTopic("AOTEMAN"));
+        container.addMessageListener(new TestChannelTopicMessageListener(), new PatternTopic("TEST"));
+//        container.addMessageListener(new TestChannelTopicMessageListener(), new PatternTopic("AOTEMAN"));
 //        container.addMessageListener(new TestPatternTopicMessageListener(), new PatternTopic("TEST"));
+        container.addMessageListener(new TestPatternTopicMessageListener(), new PatternTopic("ZD"));
         return container;
     }
 

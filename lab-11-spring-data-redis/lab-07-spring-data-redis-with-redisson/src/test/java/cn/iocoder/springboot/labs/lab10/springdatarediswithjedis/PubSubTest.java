@@ -13,6 +13,8 @@ public class PubSubTest {
 
     public static final String TOPIC = "TEST";
 
+    public static final String TOPICTWO = "ZD";
+
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
@@ -20,6 +22,11 @@ public class PubSubTest {
     public void test01() throws InterruptedException {
         for (int i = 0; i < 3; i++) {
             stringRedisTemplate.convertAndSend(TOPIC, "yunai:" + i);
+            Thread.sleep(1000L);
+        }
+
+        for(int i = 0; i<3;i++){
+            stringRedisTemplate.convertAndSend(TOPICTWO,"zd:"+i);
             Thread.sleep(1000L);
         }
     }
