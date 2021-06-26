@@ -10,6 +10,9 @@ import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SessionTest {
@@ -24,7 +27,7 @@ public class SessionTest {
             @Override
             public String execute(RedisOperations operations) throws DataAccessException {
                 for (int i = 0; i < 100; i++) {
-                    operations.opsForValue().set(String.format("yunai:%d", i), "shuai02");
+                    //operations.opsForValue().set(String.format("yunai:%d", i), "shuai02");
                 }
                 return (String) operations.opsForValue().get(String.format("yunai:%d", 0));
             }
@@ -32,6 +35,19 @@ public class SessionTest {
         });
 
         System.out.println("result:" + result);
-    }
+        //测试返回列表
+        List<String> execute = stringRedisTemplate.execute(new SessionCallback<List<String>>() {
+            @Override
+            public <K, V> List<String> execute(RedisOperations<K, V> redisOperations) throws DataAccessException {
+                ArrayList<String> objects = new ArrayList<>();
+                for (int i = 0; i < 100; i++) {
+                    objects.add((String) redisOperations.opsForValue().get(String.format("yunai:%d", i)));
+                }
+                return objects;
+            }
+        });
 
+        System.out.println("execute:" + execute.toString());
+
+    }
 }

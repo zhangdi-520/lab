@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
+import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
 @Configuration
@@ -50,10 +51,10 @@ public class RedisConfiguration {
         container.setConnectionFactory(factory);
 
         // 添加监听器
-        container.addMessageListener(new TestChannelTopicMessageListener(), new PatternTopic("TEST"));
-//        container.addMessageListener(new TestChannelTopicMessageListener(), new PatternTopic("AOTEMAN"));
+        //container.addMessageListener(messageListenerAdapter, new PatternTopic("TEST"));
+        //container.addMessageListener(messageListenerAdapter, new PatternTopic("AOTEMAN"));
 //        container.addMessageListener(new TestPatternTopicMessageListener(), new PatternTopic("TEST"));
-        container.addMessageListener(new TestPatternTopicMessageListener(), new PatternTopic("ZD"));
+      //  container.addMessageListener(new TestPatternTopicMessageListener(), new PatternTopic("ZD"));
         return container;
     }
 

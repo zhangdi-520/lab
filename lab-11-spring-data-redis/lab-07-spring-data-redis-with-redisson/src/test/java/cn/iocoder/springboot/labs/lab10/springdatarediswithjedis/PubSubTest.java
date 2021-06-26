@@ -15,6 +15,8 @@ public class PubSubTest {
 
     public static final String TOPICTWO = "ZD";
 
+    public static final String AOTEMAN = "AOTEMAN";
+
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
@@ -26,7 +28,7 @@ public class PubSubTest {
         }
 
         for(int i = 0; i<3;i++){
-            stringRedisTemplate.convertAndSend(TOPICTWO,"zd:"+i);
+            stringRedisTemplate.convertAndSend(AOTEMAN,"zd:"+i);
             Thread.sleep(1000L);
         }
     }
