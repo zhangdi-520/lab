@@ -1,4 +1,4 @@
-package cn.iocoder.springboot.lab21.cache.mapper;
+package cn.iocoder.springboot.lab21.cache.mapper.db;
 
 import cn.iocoder.springboot.lab21.cache.dataobject.db.UserDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -9,13 +9,13 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@CacheConfig(cacheNames = "users")
+//@CacheConfig(cacheNames = "users")
 public interface UserMapper extends BaseMapper<UserDO> {
 
-    @Cacheable(key = "#id")
+//    @Cacheable(key = "#id")
     UserDO selectById(Integer id);
 
-    @CachePut(key = "#user.id")
+//    @CachePut(key = "#user.id")
     default UserDO insert0(UserDO user) {
         // 插入记录
         this.insert(user);
@@ -23,7 +23,7 @@ public interface UserMapper extends BaseMapper<UserDO> {
         return user;
     }
 
-    @CacheEvict(key = "#id")
+//    @CacheEvict(key = "#id")
     int deleteById(Integer id);
 
 }

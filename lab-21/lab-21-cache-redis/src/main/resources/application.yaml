@@ -4,7 +4,7 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/lab-21-cache-demo?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: root
+    password: 802386
   # 对应 RedisProperties 类
   redis:
     host: 127.0.0.1
