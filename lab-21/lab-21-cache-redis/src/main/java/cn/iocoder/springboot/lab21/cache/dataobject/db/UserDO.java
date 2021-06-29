@@ -1,7 +1,11 @@
-package cn.iocoder.springboot.lab21.cache.dataobject;
+package cn.iocoder.springboot.lab21.cache.dataobject.db;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +14,10 @@ import java.util.Date;
  * 用户 DO
  */
 @TableName(value = "users")
+@Data
+@Accessors(chain = true)
+@Getter
+@Setter
 public class UserDO implements Serializable {
 
     /**

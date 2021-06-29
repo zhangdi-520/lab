@@ -1,6 +1,6 @@
 package cn.iocoder.springboot.lab21.cache.mapper;
 
-import cn.iocoder.springboot.lab21.cache.dataobject.UserDO;
+import cn.iocoder.springboot.lab21.cache.dataobject.db.UserDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;

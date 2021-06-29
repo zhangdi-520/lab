@@ -1,6 +1,8 @@
 package cn.iocoder.springboot.lab21.cache;
 
-import cn.iocoder.springboot.lab21.cache.dataobject.UserDO;
+import cn.iocoder.springboot.lab21.cache.convert.UserConvert;
+import cn.iocoder.springboot.lab21.cache.dataobject.cache.UserCache;
+import cn.iocoder.springboot.lab21.cache.dataobject.db.UserDO;
 import cn.iocoder.springboot.lab21.cache.mapper.UserMapper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -43,6 +45,8 @@ public class UserMapperTest {
 
         // 查询 id = 1 的记录
         user = userMapper.selectById(id);
+
+//        UserCache convert = UserConvert.INSTANCE.convert(user);
         System.out.println("user：" + user);
     }
 
