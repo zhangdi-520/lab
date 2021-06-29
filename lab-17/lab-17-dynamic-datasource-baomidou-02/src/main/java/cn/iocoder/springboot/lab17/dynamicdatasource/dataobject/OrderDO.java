@@ -1,8 +1,11 @@
 package cn.iocoder.springboot.lab17.dynamicdatasource.dataobject;
 
+import lombok.Data;
+
 /**
  * 订单 DO
  */
+@Data
 public class OrderDO {
 
     /**

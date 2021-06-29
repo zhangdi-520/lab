@@ -1,6 +1,6 @@
 package cn.iocoder.springboot.lab17.dynamicdatasource.repository.orders;
 
-import cn.iocoder.springboot.lab17.dynamicdatasource.dataobject.OrderDO;
+import cn.iocoder.springboot.lab17.dynamicdatasource.dataobject.order.OrderDO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

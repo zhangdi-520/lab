@@ -20,7 +20,7 @@ public class OrderMapperTest {
     public void testSelectById() {
         for (int i = 0; i < 10; i++) {
             OrderDO order = orderMapper.selectById(1);
-            System.out.println(order);
+            System.out.println(order.toString());
         }
     }
 

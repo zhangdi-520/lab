@@ -1,6 +1,7 @@
 package cn.iocoder.springboot.lab17.dynamicdatasource;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
@@ -8,4 +9,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @MapperScan(basePackages = "cn.iocoder.springboot.lab17.dynamicdatasource.mapper")
 @EnableAspectJAutoProxy(exposeProxy = true) // http://www.voidcn.com/article/p-zddcuyii-bpt.html
 public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class,args);
+    }
+
 }

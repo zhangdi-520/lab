@@ -19,7 +19,7 @@ public class OrderService {
     public void add(OrderDO order) {
         // 这里先假模假样的读取一下，
         OrderDO exists = orderMapper.selectById(order.getId());
-        System.out.println(exists);
+        System.out.println(exists.toString());
 
         // 插入订单
         orderMapper.insert(order);

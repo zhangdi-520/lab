@@ -1,50 +1,49 @@
-package cn.iocoder.springboot.lab17.dynamicdatasource.dataobject;
+package cn.iocoder.springboot.lab17.dynamicdatasource.dataobject.user;
 
 import javax.persistence.*;
 
 /**
- * 订单 DO
+ * 用户 DO
  */
 @Entity
-@Table(name = "orders")
-public class OrderDO {
+@Table(name = "users")
+public class UserDO {
 
     /**
-     * 订单编号
+     * 用户编号
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY,  // strategy 设置使用数据库主键自增策略；
             generator = "JDBC") // generator 设置插入完成后，查询最后生成的 ID 填充到该属性中。
     private Integer id;
     /**
-     * 用户编号
+     * 账号
      */
-    @Column(name = "user_id")
-    private Integer userId;
+    private String username;
 
     public Integer getId() {
         return id;
     }
 
-    public OrderDO setId(Integer id) {
+    public UserDO setId(Integer id) {
         this.id = id;
         return this;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public OrderDO setUserId(Integer userId) {
-        this.userId = userId;
+    public UserDO setUsername(String username) {
+        this.username = username;
         return this;
     }
 
     @Override
     public String toString() {
-        return "OrderDO{" +
+        return "UserDO{" +
                 "id=" + id +
-                ", userId=" + userId +
+                ", username='" + username + '\'' +
                 '}';
     }
 

@@ -1,8 +1,8 @@
 package cn.iocoder.springboot.lab17.dynamicdatasource.service;
 
 import cn.iocoder.springboot.lab17.dynamicdatasource.constant.DBConstants;
-import cn.iocoder.springboot.lab17.dynamicdatasource.dataobject.OrderDO;
-import cn.iocoder.springboot.lab17.dynamicdatasource.dataobject.UserDO;
+import cn.iocoder.springboot.lab17.dynamicdatasource.dataobject.order.OrderDO;
+import cn.iocoder.springboot.lab17.dynamicdatasource.dataobject.user.UserDO;
 import cn.iocoder.springboot.lab17.dynamicdatasource.repository.orders.OrderRepository;
 import cn.iocoder.springboot.lab17.dynamicdatasource.repository.users.UserRepository;
 import org.springframework.aop.framework.AopContext;

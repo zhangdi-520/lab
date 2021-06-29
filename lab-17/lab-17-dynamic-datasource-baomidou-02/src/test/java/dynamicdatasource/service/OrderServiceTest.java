@@ -19,6 +19,7 @@ public class OrderServiceTest {
     @Test
     public void testAdd() {
         OrderDO order = new OrderDO();
+        order.setId(1);
         order.setUserId(20);
         orderService.add(order);
     }

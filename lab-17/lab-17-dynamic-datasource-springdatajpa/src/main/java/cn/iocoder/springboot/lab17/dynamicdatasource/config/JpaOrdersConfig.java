@@ -44,7 +44,7 @@ public class JpaOrdersConfig {
         return builder
                 .dataSource(this.dataSource()) // 数据源
                 .properties(hibernateVendorProperties) // 获取并注入 Hibernate Vendor 相关配置
-                .packages("cn.iocoder.springboot.lab17.dynamicdatasource.dataobject") // 数据库实体 entity 所在包
+                .packages("cn.iocoder.springboot.lab17.dynamicdatasource.dataobject.order") // 数据库实体 entity 所在包
                 .persistenceUnit("ordersPersistenceUnit") // 设置持久单元的名字，需要唯一
                 .build();
     }
